@@ -211,6 +211,7 @@
 <script src="stats.js?11"></script>
 <script src="statsgraph.js?11"></script>
 <script src="views/main.view.js?11"></script>
+<script src="action.js?11"></script>
 <script src="actions.js?11"></script>
 <script src="actionList.js?11"></script>
 <script src="town.js?11"></script>
@@ -240,6 +241,7 @@
     Localization.loadLib('game',function() { // we load the "game.xml" library, then startup the game.
       Views.draw();
       Localization.localizePage("game");
+      Action_test();
       startGame();
     });
   })

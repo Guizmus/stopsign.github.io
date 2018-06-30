@@ -27,14 +27,15 @@ window.Localization = {
         callback.call(this);
     })
   },
-  txt : function(path,lib) { // lib can be ignored to use the last used lib. returns the text for the given key
+  txt : function(path,lib,debug) { // lib can be ignored to use the last used lib. returns the text for the given key
+    debug = typeof(debug) == "undefined" ? Localization.debug : debug;
     if (typeof(lib) == "undefined")
       lib = Localization.lastLib;
     var libObject = $(Localization.libs[lib]);
     if (libObject.length)
       var txt = $(Localization.libs[lib]).find(path).text();
-
-    if (txt=="") {
+      
+    if ((txt=="") && debug) {
       console.warn("Missing text in lang '"+ Localization.currentLang + "' for key "+path+" in lib "+lib);
       txt = "["+path+"]";
     }
